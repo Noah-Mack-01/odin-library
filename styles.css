@@ -24,8 +24,8 @@ body>div:first-child {
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 15%));
-    grid-template-rows: repeat(2, minmax(35%, 350px));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 15%));
+    grid-template-rows: repeat(2, minmax(min-content, 35%));
     row-gap: 5%;
     column-gap: 20px;
 
