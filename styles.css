@@ -9,7 +9,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    width: 100%; 
+    width: 100%;
+    min-width: 900px; 
     height: 100%;
     display: flex;
     justify-content: center;
@@ -24,8 +25,8 @@ body>div:first-child {
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 15%));
-    grid-template-rows: repeat(2, minmax(min-content, 35%));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 15%));
+    grid-template-rows: repeat(2, minmax(35%, 400px));
     row-gap: 5%;
     column-gap: 20px;
 

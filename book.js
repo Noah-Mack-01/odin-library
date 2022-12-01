@@ -1,4 +1,5 @@
 
+let myLib = [];
 
 function Book(title, author, readYet, pages) {
     this.title = title;
@@ -6,6 +7,7 @@ function Book(title, author, readYet, pages) {
     this.readYet = readYet;
     this.pages = pages;
 
+    addToLibrary(this);
 
 }
 
@@ -19,9 +21,9 @@ function addToLibrary(book) {
 
 
 const lotr = new Book("Lord of the Rings", "Tolkien", false, 1000);
+const egame = new Book("Ender's Game", "Orson Scott Card", false, 300);
+const irjhn = new Book("Iron John", "Robert Bly", false, 600);
 
-
-let myLib = [];
 
 
 function renderToHTML() {
@@ -36,5 +38,4 @@ function renderToHTML() {
     });
     
 }
-addToLibrary(lotr);
 renderToHTML();
