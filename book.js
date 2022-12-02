@@ -35,7 +35,7 @@ function renderToHTML() {
             +`<button type="button" class=delete id="${bookCount}-button">X</button>`
             +`<p class="key">Author:</p><p class="pair">${book.author}</p>`
             +`<p class="key">Page Count:</p><p class="pair">${book.pages}</p>`
-            +`<p class="key">Read Yet?:</p><p class="pair">${(this.readYet) ? "Yes" : "No"}</p>`
+            +`<p class="key">Read Yet?:</p><p class="pair">${(book.readYet) ? "Yes" : "No"}</p>`
             +`</div>`)
     });
 
@@ -54,4 +54,7 @@ document.getElementById("submission").addEventListener("click", (event)=>{
         document.getElementById("pgct").value
     )
     renderToHTML();
+    console.log(newBook.readYet)
+    console.log(document.getElementById("read").checked);
 })
+
