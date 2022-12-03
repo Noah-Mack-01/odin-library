@@ -1,97 +1,68 @@
-
 html {
+    margin: 0;
     width: 100%;
     height: 100%;
 }
 
+
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    width: 100%;
-    background-color: #669A;
     display: grid;
-    grid-template-rows: 80% 20%; 
-    grid-template-columns: 1;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 80% 20%;
+}
+
+body>div {
+    height: 100%;
+    max-height: 100%;
+    overflow: scroll;
+    background-color: darkgrey;
+}
+
+body>div>div{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5%;
+}
+
+body>div>div>div{
+    margin-left: 30px;
+    display: grid;
+    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: 60% 40%;
+    height: 80%;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+button {
+    width: 50%;
+    height: 50%;
+    margin-left: 30%;
 }
 
 
 body>form {
-    background-color: lightblue;
-    z-index: 3;;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: solid aliceblue 4px;
+    background-color: powderblue;
 }
 
-body>form>*{
-    font-size: 20pt;
-    margin: 10px;
-    position: sticky;
+body>form>label{
+    margin-left: 40px;
+    margin-right: 10px;
 }
 
-body>form>input[type=checkbox] {
-    transform: scale(2);
-}
-
-body>div {
-    z-index: 0;
-    justify-content: center;
-    align-items: center;
-    padding: 3%;
-    display: grid;
-    min-height: 100%;
-    grid-template-columns: repeat(3, 20%);
-    grid-template-rows: repeat(2, 30%);
-    grid-auto-rows: 30%;
-    row-gap: 5%;
-    column-gap: 5%;
-    overflow-y: scroll;
-}
-
-body>div>div {
-    background-color: white;
-    position: relative;
-    width: 98%;
-    height: 98%;
-    border-radius: 1rem;
-    border-left: gold 15px solid;
-    display: grid;
-    grid-template-columns: 22% 58% 8%;
-    justify-content: left;
-    align-items: center;
-}
-
-body>div>div>h1{
-    justify-content: flex-start;
-    grid-column: 1 / span 2;
-    margin-top: 10px;
-    font-size: 20pt;
-    font-weight: 600;
-}
-
-body>div>div>*{
+body>form>input[type=submit]{
+    transform: scale(1.25);
     margin-left: 20px;
-}
-
-
-
-.key {
-    grid-column: 1;
-    font-size: 16pt;
-    font-weight: 600;
-}
-
-.pair {
-    grid-column: 2;
-    text-align: right;
-}
-
-.delete {
-    height: 50%;
-    padding: 0;
-    margin: 0;
-    grid-row: 1;
-    grid-column: 3;
 }

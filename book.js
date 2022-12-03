@@ -19,31 +19,39 @@ function addToLibrary(book) {
     myLib.push(book);
 }
 
+function removefromLibrary(book) {
+    myLib = myLib.filter(booktwo => booktwo!= book);
+}
+
 
 const lotr = new Book("Lord of the Rings", "Tolkien", false, 1000);
 const egame = new Book("Ender's Game", "Orson Scott Card", false, 300);
 const irjhn = new Book("Iron John", "Robert Bly", false, 600);
 
-let bookCount = 0;
 
 function renderToHTML() {
-    document.querySelector("html>body>div").innerHTML ="";
-    myLib.forEach((book)=>{
-        console.log(book);
-        document.querySelector("html>body>div").innerHTML += (`<div id="${bookCount}-book">`
+    document.querySelector("html>body>div>div").innerHTML ="";
+    for (i = 0; i < myLib.length; i++) {
+        let book = myLib[i];
+        document.querySelector("html>body>div>div").innerHTML += (`<div data-key="${i}">`
             +`<h1>${book.title}</h1>`
-            +`<button type="button" class=delete id="${bookCount}-button">X</button>`
+            +`<button type="button" class=delete data-key=${i}>X</button>`
             +`<p class="key">Author:</p><p class="pair">${book.author}</p>`
             +`<p class="key">Page Count:</p><p class="pair">${book.pages}</p>`
             +`<p class="key">Read Yet?:</p><p class="pair">${(book.readYet) ? "Yes" : "No"}</p>`
-            +`</div>`)
-    });
+            +`</div>`);   
+    }
 
-
-
+    for (j=0; j<myLib.length; j++) {
+        document.querySelector(`div[data-key="${j}"]>button`).addEventListener("click",(event)=>{
+            let temp = event.target.dataset.key;
+            myLib.splice(temp, 1);
+            renderToHTML();
+        });
+     }
+    
 }
 renderToHTML();
-console.log(document.getElementById(`2-book`));
 
 document.getElementById("submission").addEventListener("click", (event)=>{
     event.preventDefault();
@@ -54,7 +62,5 @@ document.getElementById("submission").addEventListener("click", (event)=>{
         document.getElementById("pgct").value
     )
     renderToHTML();
-    console.log(newBook.readYet)
-    console.log(document.getElementById("read").checked);
 })
 
