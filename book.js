@@ -15,6 +15,10 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}. ${this.pages} pages. ${(this.readYet) ? "Have Read." : "Have Not Read Yet."}`
 }
 
+Book.prototype.toggleRead = function() {
+    this.readYet = false;
+}
+
 function addToLibrary(book) {
     myLib.push(book);
 }
@@ -35,7 +39,8 @@ function renderToHTML() {
         let book = myLib[i];
         document.querySelector("html>body>div>div").innerHTML += (`<div data-key="${i}">`
             +`<h1>${book.title}</h1>`
-            +`<button type="button" class=delete data-key=${i}>X</button>`
+            +`<button type="button" class=delete data-key=${i}>DEL</button>`
+            +`<button type="button" class="read-bool" data-key=${i}>Read</button>`
             +`<p class="key">Author:</p><p class="pair">${book.author}</p>`
             +`<p class="key">Page Count:</p><p class="pair">${book.pages}</p>`
             +`<p class="key">Read Yet?:</p><p class="pair">${(book.readYet) ? "Yes" : "No"}</p>`
@@ -43,11 +48,18 @@ function renderToHTML() {
     }
 
     for (j=0; j<myLib.length; j++) {
-        document.querySelector(`div[data-key="${j}"]>button`).addEventListener("click",(event)=>{
+        document.querySelector(`div[data-key="${j}"]>button.delete`).addEventListener("click",(event)=>{
             let temp = event.target.dataset.key;
             myLib.splice(temp, 1);
             renderToHTML();
         });
+
+        document.querySelector(`div[data-key="${j}"]>button.read-bool`).addEventListener("click",(event)=>{
+            let temp=event.target.dataset.key
+            let book = myLib[temp];
+            book.readYet = !book.readYet;
+            renderToHTML();
+        })
      }
     
 }

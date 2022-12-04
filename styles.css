@@ -34,7 +34,7 @@ body>div>div>div{
     margin-left: 30px;
     display: grid;
     grid-template-rows: repeat(4,1fr);
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 60% 20% 20%;
     height: 80%;
     padding: 10px;
     justify-content: center;
@@ -44,9 +44,8 @@ body>div>div>div{
 }
 
 button {
-    width: 50%;
+    width: min-content;
     height: 50%;
-    margin-left: 30%;
 }
 
 
@@ -65,4 +64,12 @@ body>form>label{
 body>form>input[type=submit]{
     transform: scale(1.25);
     margin-left: 20px;
+}
+
+.pair {
+    grid-column: 2 / span 2;
+}
+
+.key  {
+    grid-column: 1;
 }
